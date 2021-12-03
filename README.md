@@ -1,24 +1,20 @@
-# crowdfunding
+![Preview](./exo-ressources/design/desktop-preview.jpg)
 
-## Project setup
-```
-npm install
-```
+## Le challenge
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+Le challenge est de créer une page de crowdfunding similaire à celui des exemples fournis. 
+Vous trouverez les ressources habituelles (design, style guide) dans le dossier `exo-ressources`.
 
-### Compiles and minifies for production
-```
-npm run build
-```
+L'utilisateur devrait être capable de :
 
-### Lints and fixes files
-```
-npm run lint
-```
+- Voir les états "hover" de tous les éléments interractifs de la page
+- Sélectionner le pledge qu'il veut faire
+- Voir la barre de progrès et le total d'argent changer lorsqu'un pledge est confirmé
+- Voir le total de backers s'incrémenter après avoir confirmé un pledge
+- Sauvegarder (bookmark) le produit
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+**Bonne chance !** 👾
+
+_ps : commencez par un_ `npm i`
+
+_ps2 : sass/scss loader est installé dans le projet_
