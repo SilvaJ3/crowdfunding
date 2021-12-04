@@ -19,7 +19,7 @@
           </div>
           <div class="footer_option">
             <h1>{{ pledge.left }} <span>left</span></h1>
-            <div class="selectReward">
+            <div class="selectReward" @click="selectPledge(index)">
               <span>{{ pledge.left > 0 ? "Select Reward" : "Out of stock"}}</span>
             </div>
           </div>
@@ -42,7 +42,13 @@ export default {
   },
   props: { 
     pledges: Array,
+  },
+  methods: {
+    selectPledge(value) {
+      let index = value;
+      this.$emit("openSelectedModal", index)
     }
+  }
 }
 </script>
 
@@ -55,8 +61,7 @@ export default {
   border-radius: 10px
   padding: 5%
   width: 45vw
-  transform: translateY(-10%)
-  border: solid 1px lightgray
+  transform: translateY(-4%)
   .about
     color: grey
   .pledge

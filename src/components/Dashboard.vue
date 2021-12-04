@@ -7,7 +7,7 @@
       <h1>{{ title }}</h1>
       <p>{{ subtitle }}</p>
       <div class="buttons">
-        <div class="supportProjectBtn">
+        <div class="supportProjectBtn" @click="() => this.$emit('openModal')">
           <span>{{ button }}</span>
         </div>
         <div class="bookmark" @click="bookmarked = !bookmarked" :class="bookmarked ? 'bookmarked' : ''">
@@ -71,6 +71,8 @@ export default {
         color: white
         text-align: center
         cursor: pointer
+        span
+          pointer-events: none
       .supportProjectBtn:hover
         background-color: #157a72
       .bookmark

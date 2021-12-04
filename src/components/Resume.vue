@@ -3,22 +3,22 @@
     <div class="section2">
       <div class="resume">
         <div class="collected">
-          <h1>$89,914</h1>
+          <h1>${{crowdfunding.total}}</h1>
           <span>of $100,000 backed</span>
         </div>
         <div class="bar"></div>
         <div class="backers">
-          <h1>5,007</h1>
+          <h1>{{crowdfunding.backers}}</h1>
           <span>total backers</span>
         </div>
         <div class="bar"></div>
         <div class="days">
-          <h1>56</h1>
+          <h1>{{crowdfunding.daysLeft}}</h1>
           <span>days left</span>
         </div>
       </div>
       <div class="progress">
-        <div></div>
+        <div :style="'width :' + ((crowdfunding.total / crowdfunding.goal) * 100) + '%'"></div>
       </div>
     </div>
   </section>
@@ -26,7 +26,9 @@
 
 <script>
 export default {
-
+  props: {
+    crowdfunding: Object
+  }
 }
 </script>
 
@@ -42,7 +44,6 @@ export default {
   padding: 5%
   width: 45vw
   transform: translateY(-40%)
-  border: solid 1px lightgray
   .resume
     width: 100%
     display: flex
@@ -72,7 +73,7 @@ export default {
     background-color: lightgray
     div
       height: 20px
-      width: 80%
+      // width: 80%
       background-color: hsl(176, 50%, 47%)
       border-radius: 30px
 
