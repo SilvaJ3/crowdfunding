@@ -11,6 +11,7 @@
           <h1>5,007</h1>
           <span>total backers</span>
         </div>
+        <div class="bar"></div>
         <div class="days">
           <h1>56</h1>
           <span>days left</span>
@@ -41,16 +42,19 @@ export default {
   padding: 5%
   width: 45vw
   transform: translateY(-40%)
+  border: solid 1px lightgray
   .resume
     width: 100%
     display: flex
     justify-content: space-evenly
+    align-items: center
     margin-bottom: 20px
   .bar
+    transform: translateX(-20px)
     width: 1px
     height: 60px
     background-color: lightgray
-    margin: auto 5px
+    margin: auto 20px
   .collected, .backers, .days
     display: flex
     flex-direction: column

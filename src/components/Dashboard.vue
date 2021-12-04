@@ -10,8 +10,10 @@
         <div class="supportProjectBtn">
           <span>{{ button }}</span>
         </div>
-        <div class="bookmark">
-          <img :src="bookmarkIcon" alt="">
+        <div class="bookmark" @click="bookmarked = !bookmarked" :class="bookmarked ? 'bookmarked' : ''">
+          <div class="icon">
+            <i class="fas fa-bookmark"></i>
+          </div>
           <p>{{ bookmark }}</p>
         </div>
       </div>
@@ -32,7 +34,8 @@ export default {
       button: "Back this project",
       bookmark: "Bookmark",
       bookmarkIcon: bookmarkIcon,
-      logo: logo
+      logo: logo,
+      bookmarked: false
     }
   }
 }
@@ -63,16 +66,40 @@ export default {
       margin-top: 3%
       .supportProjectBtn
         border-radius: 30px
-        padding: 2% 8%
+        padding: 17px 30px
         background-color: hsl(176, 50%, 47%)
         color: white
         text-align: center
+        cursor: pointer
+      .supportProjectBtn:hover
+        background-color: #157a72
       .bookmark
         display: flex
-        justify-content: center
         align-items: center
-        img
+        border-radius: 30px
+        background-color: #f4f4f4
+        width: 160px
+        cursor: pointer
+        .icon
           margin-right: 10%
+          width: 50px
+          height: 50px
+          background-color: #2f2f2f
+          color: #b1b1b1
+          border-radius: 50%
+          display: flex
+          justify-content: center
+          align-items: center
+        p
+          font-weight: 700
+      .bookmarked
+        p
+          color: hsl(176, 50%, 47%)
+        .icon
+          background-color: hsl(176, 50%, 47%) 
+          color: white
+      .bookmark:hover
+        opacity: 0.75
     .logo
       position: absolute
       top: -12%
