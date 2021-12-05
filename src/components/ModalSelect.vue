@@ -102,7 +102,7 @@ export default {
       if (this.pledgeValue == 0) {
         this.pledgeValue = this.pledges[index].value;
       }
-      this.$emit("pledgeSelected", this.pledgeValue);
+      this.$emit("pledgeSelected", this.pledgeValue, index);
       this.pledgeValue = 0;
     }
   },

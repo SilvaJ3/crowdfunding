@@ -73,7 +73,6 @@ export default {
     background-color: lightgray
     div
       height: 20px
-      // width: 80%
       background-color: hsl(176, 50%, 47%)
       border-radius: 30px
 

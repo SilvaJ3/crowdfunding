@@ -2,12 +2,13 @@
   <div id="app">
     <div v-show="showModal" class="backdrop">
       <ModalSelect v-show="showPledgeModal" :pledges="pledges_update" @closeModal="closeModal" @pledgeSelected="pledgeSelected"/>
+      <ModalConfirm v-show="showConfirmModal" @closeModal="closeModal"/>
     </div>
     <Nav />
     <div class="section">
       <Dashboard @openModal="openModal"/>
       <Resume :crowdfunding="crowdfunding_update"/>
-      <PledgeBox :pledges="pledges" @openSelectedModal="openSelectedModal"/>
+      <PledgeBox :pledges="pledges_update" @openSelectedModal="openSelectedModal"/>
     </div>
   </div>
 </template>
@@ -18,10 +19,11 @@ import Dashboard from "./components/Dashboard.vue"
 import Resume from "./components/Resume.vue"
 import PledgeBox from "./components/PledgeBox.vue"
 import ModalSelect from "./components/ModalSelect.vue"
+import ModalConfirm from "./components/ModalConfirm.vue"
 
 export default {
   name: 'App',
-  components: { Nav, Dashboard, Resume, PledgeBox, ModalSelect },
+  components: { Nav, Dashboard, Resume, PledgeBox, ModalSelect, ModalConfirm },
   data(){
     return {
       pledges: [
@@ -59,12 +61,14 @@ export default {
       crowdfunders: [],
       showModal: false,
       showPledgeModal: false,
+      showConfirmModal: false,
     }
   },
   methods: {
     closeModal() {
       this.showModal = false;
       this.showPledgeModal = false;
+      this.showConfirmModal = false;
     },
     openModal() {
       this.showModal = true;
@@ -84,24 +88,26 @@ export default {
     },
     updateTotal(){
       this.crowdfunders.forEach(element => {
-        this.crowdfunding.backers--;
+        this.crowdfunding.backers++;
         this.crowdfunding.total = parseFloat(this.crowdfunding.total) + parseFloat(element.amount);
       })
 
-      this.showModal = false;
       this.showPledgeModal = false;
+      this.showConfirmModal = true;
 
     },
     updatePledges(){
       this.crowdfunders.forEach(element => {
         if (element.pledge) {
           let index = this.pledges.indexOf(element.pledge)
+          console.log(index);
           this.pledges[index].left--;
         }
       })
 
-      this.showModal = false;
       this.showPledgeModal = false;
+      this.showConfirmModal = true;
+
     }
   },
   computed: {
