@@ -28,7 +28,7 @@
                     <p>Enter your pledge</p>
                   </div>
                   <div class="buttonsPledge">
-                    <input type="text" step="1" v-model="pledgeValue">
+                    <input type="number" step="1" min="1" v-model="pledgeValue">
                     <div class="continueBtn" @click="confirmPledge(null)">
                       <span>Continue</span>
                     </div>
@@ -66,7 +66,7 @@
                     <p>Enter your pledge</p>
                   </div>
                   <div class="buttonsPledge">
-                    <input type="text" step="1" v-model="pledgeValue">
+                    <input type="number" step="1" :min="pledge.value" v-model="pledgeValue">
                     <div class="continueBtn" @click="confirmPledge(index)">
                       <span>Continue</span>
                     </div>
